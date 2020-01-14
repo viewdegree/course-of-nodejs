@@ -22,10 +22,17 @@ function complete(path,res){
 }//路由函数定义
 //服务器创建
 let app = http.createServer((req,res)=>{
+    //下列三个变量是经常传递的参数,所以提前定义好
+    let path = null;
+    let get = {};
+    let post = {};
+
     if(req.method.toUpperCase() ==='GET'){
-        let {path,query} = url.parse(req.url,true);
+        let {pathname,query} = url.parse(req.url,true);
+        path = pathname;    
+        get = query;    //将get的传递的数据对象,存到get对象中
         console.log('get请求');
-        console.log(path,query);
+        console.log(path,get);
         complete(path,res);//调用路由函数
     }else if(req.method.toUpperCase() ==='POST'){
         arr = [];
@@ -35,9 +42,9 @@ let app = http.createServer((req,res)=>{
         req.on('end',()=>{
             let buffer = Buffer.concat(arr);   //将接收post的分段数据拼接起来
             // console.log(buffuer.toString())
-            let postdata = querystring.parse(buffer.toString());
+            post = querystring.parse(buffer.toString());    //将post传递的数据对象存到post对象中
             console.log('post请求');
-            console.log(postdata);
+            console.log(post);
         })
     }else{
         res.write('网络出现了问题,请稍后再试');
