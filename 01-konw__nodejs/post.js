@@ -8,7 +8,7 @@ let server = http.createServer((req,res)=>{
     })
     req.on('end',()=>{
         let buffer = Buffer.concat(arr);   //将接收post的分段数据拼接起来
-        // console.log(buffuer.toString())
+        // console.log(buffer.toString())
         let postdata = querystring.parse(buffer.toString());
         console.log(postdata);
     })
