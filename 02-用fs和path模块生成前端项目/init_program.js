@@ -1,29 +1,7 @@
-//初始化项目数据
+//初始化项目数据    fs和path引入模块只能放在次文件中,因为在这个文件中的函数会用到fs和path的方法
 let fs = require('fs');
 let path = require('path');
-let  programeData = {
-    name:'前端项目文件夹',      //项目文件夹名称
-    fileData:[
-        {
-            name:'css',
-            type:'dir'
-        },
-        {
-            name:'js',
-            type:'dir'
-        },
-        {
-            name:'images',
-            type:'dir'
-        },
-        {
-            name:'index.html',
-            type:'file'
-        }
-    ]
-}
-
-function init_program(programeData){
+exports.fn = function init_program(programeData){
     let {name,fileData} = programeData; //解构赋值
     if(!fs.existsSync(name)){
         fs.mkdirSync(name);     //初始化文件夹
@@ -41,5 +19,3 @@ function init_program(programeData){
     }
 
 }
-
-init_program(programeData);
