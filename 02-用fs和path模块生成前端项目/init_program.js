@@ -23,7 +23,7 @@ let  programeData = {
     ]
 }
 
-function init_program(){
+function init_program(programeData){
     let {name,fileData} = programeData; //解构赋值
     if(!fs.existsSync(name)){
         fs.mkdirSync(name);     //初始化文件夹
@@ -42,4 +42,4 @@ function init_program(){
 
 }
 
-init_program();
+init_program(programeData);
