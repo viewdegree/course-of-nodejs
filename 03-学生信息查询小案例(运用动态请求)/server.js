@@ -14,12 +14,17 @@ const server = http.createServer((req,res)=>{
             if(err)return;
             let stuInfo = JSON.parse(data.toString());  //拿到了数据库student中的存储的数据对象
             console.log(stuInfo);       //拿到了数据库对象
-            res.write(`<h4>你的学号是:${number}<\h4>`);
-            res.write('<h5>你的姓名是:'+stuInfo[number]['username']+'<\h5>');
-            res.write('<h5>你的语文成绩是:'+stuInfo[number]['chinese']+'<\h5>');
-            res.write('<h5>你的数学成绩是:'+stuInfo[number]['math']+'<\h5>');
-            res.write('<h5>你的英语成绩是:'+stuInfo[number]['english']+'<\h5>');
-            res.end();
+            if(stuInfo.hasOwnProperty(number)){ //判断数据对象中是否存在查询的学号
+                res.write(`<h4>你的学号是:${number}<\h4>`);
+                res.write('<h5>你的姓名是:'+stuInfo[number]['username']+'<\h5>');
+                res.write('<h5>你的语文成绩是:'+stuInfo[number]['chinese']+'<\h5>');
+                res.write('<h5>你的数学成绩是:'+stuInfo[number]['math']+'<\h5>');
+                res.write('<h5>你的英语成绩是:'+stuInfo[number]['english']+'<\h5>');
+                res.end();
+            }else{
+                res.end("没有这位学生");
+            }
+            
         })
     }
 })
