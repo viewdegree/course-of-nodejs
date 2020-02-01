@@ -4,6 +4,7 @@ const url = require('url');
 
 const server = http.createServer((req,res)=>{
     let {pathname,query} = url.parse(req.url,true);
+    res.setHeader('content-type', 'text/html;charset=utf-8');
     //正则匹配 /student/+任意两个数字的pathname
     if(/^\/student\/\d{2}$/.test(pathname)){
         //用slice 拿到路径的后2位数字 获取到学号
@@ -13,6 +14,12 @@ const server = http.createServer((req,res)=>{
             if(err)return;
             let stuInfo = JSON.parse(data.toString());  //拿到了数据库student中的存储的数据对象
             console.log(stuInfo);       //拿到了数据库对象
+            res.write(`<h4>你的学号是:${number}<\h4>`);
+            res.write('<h5>你的姓名是:'+stuInfo[number]['username']+'<\h5>');
+            res.write('<h5>你的语文成绩是:'+stuInfo[number]['chinese']+'<\h5>');
+            res.write('<h5>你的数学成绩是:'+stuInfo[number]['math']+'<\h5>');
+            res.write('<h5>你的英语成绩是:'+stuInfo[number]['english']+'<\h5>');
+            res.end();
         })
     }
 })
