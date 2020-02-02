@@ -43,3 +43,4 @@
 
 
 mvc总结: 
+![](https://github.com/viewdegree/course-of-nodejs/blob/feature/04mvc%E9%A1%B9%E7%9B%AE--%E5%9B%A0%E5%AD%90%E8%AE%A1%E7%AE%97%E5%99%A8/04-mvc%E6%A1%88%E4%BE%8B%E5%9B%A0%E5%AD%90%E8%AE%A1%E7%AE%97%E5%99%A8/readme_img/mvc%E6%93%8D%E4%BD%9C%E5%9B%BE.png)
