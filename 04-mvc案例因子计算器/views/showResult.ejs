@@ -7,6 +7,14 @@
     <title>结果页面</title>
 </head>
 <body>
+    <p><a href="/">点击回首页</a></p>
     <p>正在拿本子计算中....</p>
+    计算完成
+    <p>时间差值: <%= time %> 毫秒</p>
+    <ul>
+        <% for(let i=0; i < result.length; i++){ %>
+            <li><%= result[i]%></li>
+        <% } %>      
+    </ul>
 </body>
 </html>
