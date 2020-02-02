@@ -11,7 +11,14 @@ exports.showResult = function(req,res){
     let start = new Date();
     let result = null;
     //传到read函数中
-    file.read(number,function(result){
+    file.read(number,function(result){//回调函数,将逻辑再写到控制层中
+        if(result === -1){
+             //1.计算
+             let result = math(number);
+            //2.存储数据
+            // fs.writeFile();下一步操作
+            //3.渲染 
+        }
         console.log(result);
     });
     // res.send(result);    这是渲染的一种方法,但是并不高效
