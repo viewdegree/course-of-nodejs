@@ -14,23 +14,16 @@ exports.showResult = function(req,res){
     file.read(number,function(result){//回调函数,将逻辑再写到控制层中
         if(result === -1){
              //1.计算
-             let arrList = math(number);    //为了避免变量名冲突
+             var result = math(number);    //为了避免变量名冲突
             //2.存储数据
             // fs.writeFile();下一步操作
-            file.save(number,arrList);   //调用module层中file模块的save
-            //3.渲染 
-            res.render('showResult',{   //render会自动找到views目录下对应ejs文件
-                result:arrList,  
-                time: new Date() - start
-            });  
-        }else{
-            // console.log(result);    //read函数中传给回调函数的结果
-            //1.找到文件直接渲染
-            res.render('showResult',{   //render会自动找到views目录下对应ejs文件
-                result:result,  //也可以写为result
-                time: new Date() - start
-            });   
-        }  
+            file.save(number,result);   //调用module层中file模块的save
+        }
+        //3.渲染 
+        res.render('showResult',{   //render会自动找到views目录下对应ejs文件
+            result:result,  
+            time: new Date() - start
+        });  
     });
     // res.send(result);    这是渲染的一种方法,但是并不高效
 }
