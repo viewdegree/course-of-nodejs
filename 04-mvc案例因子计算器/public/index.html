@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <h3>这个程序可以查询数字n的所有因数,n的取值范围是[0,100000]</h3>
+
+    <input type="text" id="number">
+    <input type="submit" id="btn" value="点我查询">
+    <script>
+        btn.onclick = function(){   //这里用window.location直接传递路由到页面
+            window.location.pathname = '/' + number.value;
+        }
+    </script>
+</body>
+</html>
