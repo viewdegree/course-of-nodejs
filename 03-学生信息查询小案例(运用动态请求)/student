@@ -1,0 +1,8 @@
+{
+    "01":{"username":"cherry","chinese":96,"math":99,"english":92},
+    "02":{"username":"jim","chinese":91,"math":93,"english":93},
+    "03":{"username":"jack","chinese":90,"math":98,"english":99},
+    "04":{"username":"tom","chinese":98,"math":96,"english":98},
+    "05":{"username":"mick","chinese":98,"math":97,"english":99},
+    "06":{"username":"kate","chinese":97,"math":90,"english":100}
+}
