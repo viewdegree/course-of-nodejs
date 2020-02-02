@@ -6,7 +6,7 @@
 const math = require("../modules/math.js"); //获取数学的方程
 const file = require("../modules/file.js")
 exports.showResult = function(req,res){
-    console.log(req.params.number);
+    // console.log(req.params.number);
     let number = req.params.number;
     let start = new Date();
     let result = null;
@@ -19,11 +19,18 @@ exports.showResult = function(req,res){
             // fs.writeFile();下一步操作
             file.save(number,arrList);   //调用module层中file模块的save
             //3.渲染 
-        }
+            res.render('showResult',{   //render会自动找到views目录下对应ejs文件
+                result:arrList,  
+                time: new Date() - start
+            });  
+        }else{
+            // console.log(result);    //read函数中传给回调函数的结果
+            //1.找到文件直接渲染
+            res.render('showResult',{   //render会自动找到views目录下对应ejs文件
+                result:result,  //也可以写为result
+                time: new Date() - start
+            });   
+        }  
     });
     // res.send(result);    这是渲染的一种方法,但是并不高效
-    // res.render('showResult',{   //render会自动找到views目录下对应ejs文件
-    //     result:result,  //也可以写为result
-    //     time: new Date() - start
-    // });   
 }
