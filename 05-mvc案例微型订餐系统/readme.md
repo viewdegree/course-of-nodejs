@@ -26,3 +26,8 @@
 <% } %>   
 ```
 
+## 阶段三处理/all/xx路由请求显示单用户订餐情况
+
+1. 建立one.ejs页面,model中将服务器中data中的数据读取并转换为对象类型通过回调函数给controller,之后controller再将对象写给one.ejs页面上
+
+**注意注意res.render()渲染函数之后不能再有res.send ()否则会报错**

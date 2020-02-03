@@ -25,3 +25,14 @@ exports.getAllNum = function(callback){ //通过callback将得到的文件数组
         }
     })
 }
+
+//读取所有data文件夹下单独文件的文件名
+exports.getOne = function(phone,callback){
+    fs.readFile('./data/'+phone,(err,data)=>{   //读取对应的数据
+        if(!err){
+            callback(JSON.parse(data));
+        }else{
+            callback(-1);
+        }
+    });
+}
