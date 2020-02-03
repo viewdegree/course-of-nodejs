@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微型订餐系统</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="box">
+        <h2>微型订餐系统</h2>
+        <p><span>手机号:</span><input type="text" id="phone"></p>
+        <p><span>美食:</span><input type="text" id="food"></p>
+        <p><input type="submit" value="点我订餐" id="submitBtn"></p>
+        <a href="/all">查看所有订单</a>
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        submitBtn.onclick=function(){
+            ajax({      //url method data success error
+                url:'/order',
+                method:'get',
+                data:{
+                    phone:phone.value,
+                    food:food.value
+                },
+                /**
+                 * ajax的成功回调函数是与服务器通信的桥梁,
+                 *比如当服务器接成功收到你的请求,想要在页面上跳出提示,
+                 *总不可能让服务器再重写一个页面吧,这样又要刷新页面
+                 *所以我们提前设置好前端的ajax成功回调函数里面的操作,这样服务器只要再传递响应数据,
+                 *让ajax里的成功回调函数进行对数据的判断就来执行相应的js前端操作也就完成了相应的服务器的请求 
+                 * 
+                */
+                success(msg){    
+                    console.log(msg);
+                },
+                error(err){  
+                    console.log(err);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
