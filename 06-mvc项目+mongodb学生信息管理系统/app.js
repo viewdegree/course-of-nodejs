@@ -19,10 +19,15 @@ app.get('/removeStudent',controller.showRemove)
 // 前端传输需要删除的学生名,进行删除操作
 app.post('/removeStudent',controller.removeStudent);
 
-// 显示removeStudent
+// 显示updateStudent
 app.get('/updateStudent',controller.showUpdate)
-// 前端传输需要删除的学生名,进行删除操作
+// 前端传输需要更新的学生名,进行更新操作
 app.post('/updateStudent',controller.updateStudent);
+
+// 显示checkStudent
+app.get('/checkStudent',controller.showCheck)
+// 前端传输需要删除的学生名,进行删除操作
+app.post('/checkStudent',controller.checkStudent);
 
 app.use(express.static('public'));  //设置静态文件
 app.listen(3000);

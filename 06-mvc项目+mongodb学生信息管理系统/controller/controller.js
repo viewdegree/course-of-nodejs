@@ -44,3 +44,15 @@ exports.updateStudent =  function(req,res){
          res.send(msg);
     });
  }
+
+ //显示查找页面 
+exports.showCheck = (req,res)=>{
+    res.render('checkStudent');
+}
+
+//向数据库中查找学生信息
+exports.checkStudent =  function(req,res){
+    db.checkStudent(req.body.name,(msg)=>{
+         res.send(msg);
+    });
+ }
