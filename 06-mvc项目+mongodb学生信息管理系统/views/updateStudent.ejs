@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改学生</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <!-- 不能将input的id设置为name否则获取不到value值 -->
+    <div class="box">
+        <p>请填写修改学生信息</p>
+        <p><span>姓名:</span><input type="text" name="name" id="username"></p>
+        <p><span>语文:</span><input type="text" name="chinese" id="chinese"></p> 
+        <p><span>数学:</span><input type="text" name="math" id="math"></p> 
+        <p><span>英语:</span><input type="text" name="english" id="english"></p>
+        <p><input type="submit" value="提交" id="submitBtn"></p>
+        <p class="right"><a href="/">点我返回首页</a></p> 
+    </div>
+    <script src="/js/ajax.js"></script>
+    <script>
+        submitBtn.onclick = function(){
+            ajax({//url method data success error
+                url: '/updateStudent',
+                method: 'post',
+                data: {
+                    'name':username.value,
+                    'chinese':chinese.value,
+                    'math':math.value,
+                    'english':english.value
+                },
+                success: function(msg){
+                    alert(msg);
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            })
+        }
+    </script>
+</body>
+</html>

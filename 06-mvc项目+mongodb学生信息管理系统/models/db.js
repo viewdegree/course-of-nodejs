@@ -64,5 +64,19 @@ mongoose.connect('mongodb://localhost:27017/student',   //student为数据库名
             }
         })
     }
-
+    exports.updateStudent = function(name, somebody, callback){
+        if(name===''){  //排除空字符串的情况
+            callback('请填写学生姓名');
+            return;
+        }
+        Student.findOne({name}).then((result)=>{    //如果查询到则result为对象,没有为null
+            if(result){//如果找到则删除
+                Student.updateOne({name}, { $set: somebody }).then((res)=>{
+                    callback('信息修改成功');
+                })
+            }else{
+                callback('无此学生');
+            }
+        })
+    }
 });

@@ -10,18 +10,19 @@ app.use(bodyParser.urlencoded({ //使用bodyParser中间件,开启bodyParser
 app.get('/', controller.showStudent);
 
 // 显示addStudent
-app.get('/addStudent',(req,res)=>{
-    res.render('showAdd');
-})
+app.get('/addStudent',controller.showAdd)
 // 前端传输新增学生信息,进行新增操作
 app.post('/addStudent',controller.addStudent);
 
 // 显示removeStudent
-app.get('/removeStudent',(req,res)=>{
-    res.render('removeStudent');
-})
+app.get('/removeStudent',controller.showRemove)
 // 前端传输需要删除的学生名,进行删除操作
 app.post('/removeStudent',controller.removeStudent);
+
+// 显示removeStudent
+app.get('/updateStudent',controller.showUpdate)
+// 前端传输需要删除的学生名,进行删除操作
+app.post('/updateStudent',controller.updateStudent);
 
 app.use(express.static('public'));  //设置静态文件
 app.listen(3000);
