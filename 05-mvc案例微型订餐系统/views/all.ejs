@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全部的订单</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="box">
+        <h2><%= numArray.length %>个订单,请尽快处理</h2>
+        <ul>
+            <% for(let i=0; i<numArray.length; i++){ %>
+                <li>用户号码为<a href="/all/<%= numArray[i] %>"><%= numArray[i] %></a>已经订餐</li>
+                <!-- 当时我在想a的href跳转连接怎么拼接上对应的值,没想到直接写在后面就可以了,模板引擎真得可以为所欲为,把值写在哪都行 -->
+            <% } %>     
+        </ul>
+        
+    </div>
+<body>
