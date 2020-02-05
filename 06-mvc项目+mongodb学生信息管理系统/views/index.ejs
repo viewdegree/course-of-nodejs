@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生成绩管理系统</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div id="box" class="box">
+        <p>学生成绩管理系统:</p>
+        <p>
+            <a href="/addStudent">增加学生信息</a>
+            <a href="/removeStudent">删除学生信息</a>
+            <a href="/updateStudent">修改学生信息</a>
+            <a href="/checkStudent">查看学生信息</a>    
+        </p>
+        <table>
+            <caption>所有学生成绩统计表,共<%= results.length %>人</caption>
+            <tr>
+                <td>学生</td>
+                <td>语文</td>
+                <td>数学</td>
+                <td>英语</td>
+            </tr>
+            <% for( let i = 0; i < results.length; i++ ) { %>
+                <tr>
+                    <td><%= results[i].name %></td>
+                    <td><%= results[i].chinese %></td>
+                    <td><%= results[i].math %></td>
+                    <td><%= results[i].english %></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>

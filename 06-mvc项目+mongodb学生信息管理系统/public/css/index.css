@@ -1,0 +1,34 @@
+body{
+    background-color: #999;
+}
+a{
+    text-decoration: none;
+    color:blue;
+    border: 5px solid #999;
+    border-radius: 5px; 
+    padding: 5px;
+}
+.box{
+    width: 700px;
+    margin: auto;
+    padding: 50px;
+    transform: translateY(50px);
+    border: 5px solid greenyellow;
+    background-color: rgba(218, 242, 142);
+    border-radius: 10px; 
+}
+.box>p{
+    display: flex;
+    text-align: center;
+}
+.box>p>a{
+    margin: auto;
+}
+.box>table{
+    margin: 50px auto; 
+    width: 80%;
+    text-align: center;
+}
+.box>table td{
+    border: 1px solid #000;
+}
