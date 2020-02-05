@@ -4,9 +4,12 @@ body{
 a{
     text-decoration: none;
     color:blue;
-    border: 5px solid #999;
-    border-radius: 5px; 
+    border-bottom: 2px solid #999;
+    border-radius: 1px; 
     padding: 5px;
+}
+.right{
+    text-align: right;
 }
 .box{
     width: 700px;
@@ -17,11 +20,11 @@ a{
     background-color: rgba(218, 242, 142);
     border-radius: 10px; 
 }
-.box>p{
+.box>p.nav{
     display: flex;
     text-align: center;
 }
-.box>p>a{
+.box>p.nav>a{
     margin: auto;
 }
 .box>table{
@@ -31,4 +34,9 @@ a{
 }
 .box>table td{
     border: 1px solid #000;
+}
+
+.box>p>span{
+    display: inline-block;
+    width: 50px;
 }

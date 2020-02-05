@@ -1,0 +1,27 @@
+### 第一阶段:实现首页的功能显示所有学生
+
+搭建好首页
+
+规划好项目路由结构
+
+![](https://github.com/viewdegree/course-of-nodejs/blob/feature/06mvx%2Bmongodb%E9%A1%B9%E7%9B%AE---%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/06-mvc%E9%A1%B9%E7%9B%AE%2Bmongodb%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/readme_img/Node%E8%B7%AF%E7%94%B1%E5%9B%BE_%E5%AD%A6%E7%94%9F%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.png)
+
+### 第二阶段:实现添加学生功能
+
+在这里我一开始想用form去传递数据给后台,但是后来发现当后台添加成功时,我想要给控制前端弹出弹窗的时候form就不行了,需要用到ajax的success回调函数,form是有来无回的感觉
+
+在布局的时候一些功能可以通过控制距离来达到美化页面的效果,最后一个返回首页我将其设置为右对齐,这样就显得协调和错落有致,而且不易与提交按钮混在一起
+
+```html
+<div class="box">
+        <p>请填写新增学生信息</p>
+        <p><span>姓名:</span><input type="text" name="name" id="username"></p>
+        <p><span>语文:</span><input type="text" name="chinese" id="chinese"></p> 
+        <p><span>数学:</span><input type="text" name="math" id="math"></p> 
+        <p><span>英语:</span><input type="text" name="english" id="english"></p>
+        <p><input type="submit" value="提交" id="submitBtn"></p>
+        <p class="right"><a href="/">点我返回首页</a></p> 
+    </div>
+```
+
+对于引入css我觉得引入一个就可以了,我们可以给css设置class类名,而在一个css文件不断的写入相应的css文件这样在信息量小而页面多的动态页面比较节省性能
