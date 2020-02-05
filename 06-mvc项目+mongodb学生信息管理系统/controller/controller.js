@@ -8,10 +8,17 @@ exports.showStudent =  function(req,res){
         })
     });
 }
-//想数据库中添加学生信息
+//向数据库中添加学生信息
 exports.addStudent =  function(req,res){
-   console.log(req.body);
    db.addStudent(req.body.name,req.body,(msg)=>{
         res.send(msg);
    });
 }
+
+
+//向数据库中删除学生信息
+exports.removeStudent =  function(req,res){
+    db.removeStudent(req.body.name,(msg)=>{
+         res.send(msg);
+    });
+ }

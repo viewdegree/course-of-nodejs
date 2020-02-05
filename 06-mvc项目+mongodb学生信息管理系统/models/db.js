@@ -34,7 +34,7 @@ mongoose.connect('mongodb://localhost:27017/student',   //student为数据库名
     //添加学生信息
     exports.addStudent = function(name, somebody, callback){
         //要进行用户名进行唯一性判断,如果重名就不添加了
-        if(name===''){  //排出空值的情况
+        if(name===''){  //排除空字符串的情况
             callback('请填写学生姓名');
             return;
         }
@@ -44,8 +44,25 @@ mongoose.connect('mongodb://localhost:27017/student',   //student为数据库名
                     callback('添加学生成功');
                 });
             }else{
-                
+                callback('已有该学生,不可重复添加');
             }
         })
     }
+    //删除学生信息
+    exports.removeStudent = function(name, callback){
+        if(name===''){  //排除空字符串的情况
+            callback('请填写学生姓名');
+            return;
+        }
+        Student.findOne({name}).then((result)=>{    //如果查询到则result为对象,没有为null
+            if(result){//如果找到则删除
+                Student.deleteOne({name}).then(()=>{
+                    callback('删除学生成功');
+                })
+            }else{
+                callback('无此学生');
+            }
+        })
+    }
+
 });
